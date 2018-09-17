@@ -34,3 +34,18 @@
  */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function advertisingText(textArray) {
+    changeElementText("#hindi", textArray[0].join(" "));
+    changeElementText("#urdu", textArray[1].join(" "));
+    changeElementText("#english", textArray[2].join(" "));
+
+    var correctString = textArray[0].join(" ") + " " + textArray[1].reverse().join(" ") + " " + textArray[2].join(" ");
+    var count = textArray[0].length + textArray[1].length + textArray[2].length;
+
+    changeElementText("#correctString", correctString);
+    changeElementText("#count", count);
+}

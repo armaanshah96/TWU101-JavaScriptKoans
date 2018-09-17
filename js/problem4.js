@@ -27,3 +27,31 @@
 */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function countTotal() {
+    var given = "";
+
+    for(var i = 0; i < arguments.length-1; i++) {
+        given += arguments[i] + ", ";
+    }
+
+    given += arguments[arguments.length - 1];
+    changeElementText("#givens", given);
+
+    var total = 0;
+    var acceptableDenominations = [5,10,20,50,100,500,1000];
+
+    for(var i = 0; i < arguments.length; i++) {
+        if(acceptableDenominations.includes(arguments[i])) {
+            total += arguments[i];
+        } else {
+            break;
+        }
+    }
+
+    changeElementText("#total", total);
+
+}

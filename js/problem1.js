@@ -26,9 +26,27 @@ function changeElementText(element, answer) {
 
 function kiteGame(numberOfKites) {
     changeElementText("#numberOfKites", numberOfKites);
+    if(numberOfKites == "") {
+        numberOfKites = 100; 
+    } else {
+        numberOfKites = parseInt(numberOfKites);
+    }
+    
     var answer = "";
-
-    // write some code here!
+    var peche = "Peche!";
+    var ipo_kaate = "Ipo kaate!";
+    
+    for(var i = 0; i < numberOfKites; i++) {
+        if(i % 3 == 0 && i % 5 == 0) {
+            answer += peche + " " + ipo_kaate;
+        } else if(i % 3 == 0) {
+            answer += peche + " ";
+        } else if(i % 5 == 0) {
+            answer += ipo_kaate + " ";
+        } else {
+            answer += i + " ";
+        }
+    }
 
     changeElementText("#answer", answer);
 }
